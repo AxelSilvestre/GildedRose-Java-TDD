@@ -14,10 +14,10 @@ public class GildedRoseTest
 
 		ArrayList<Item> items = new ArrayList<Item>(); 
 
-		items.add(new Item("MyItem1", 10, 20));
-		items.add(new Item("MyItem2", 10, 20));
-		items.add(new Item("MyItem3", 10, 20));
-		items.add(new Item("MyItem4", 10, 20));
+		items.add(new Item("MyItem1-1", 10, 20));
+		items.add(new Item("MyItem2-1", 10, 20));
+		items.add(new Item("MyItem3-1", 10, 20));
+		items.add(new Item("MyItem4-1", 10, 20));
 
 
 		for(int i=1; i<4; i++){
@@ -42,6 +42,23 @@ public class GildedRoseTest
 			GildedRose.updateItems(items);
 			for(Item item : items){
 				assertEquals(item.getQuality(), 20-i);
+			}
+		}
+		
+	}
+	
+	@Test
+	public void testQualityNeverUnderZero(){		
+		
+		ArrayList<Item> items = new ArrayList<Item>(); 
+
+		items.add(new Item("MyItem1-3", 10, 0));
+
+
+		for(int i=1; i<3; i++){
+			GildedRose.updateItems(items);
+			for(Item item : items){
+				assertEquals(item.getQuality(), 0);
 			}
 		}
 		
