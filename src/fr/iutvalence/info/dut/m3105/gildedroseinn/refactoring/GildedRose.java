@@ -17,6 +17,11 @@ public class GildedRose
 	 * items.add(new Item("Conjured Mana Cake", 3, 6));
 	 */
 
+	/** Method that updates all the items in the given list.
+	 * Null pointer isn't treated, so don't give a null list.
+	 * 
+	 * @param items
+	 */
 	public static void updateItems(List<Item> items)
 	{
 		for (int indexInItemList = 0; indexInItemList < items.size(); indexInItemList++)
