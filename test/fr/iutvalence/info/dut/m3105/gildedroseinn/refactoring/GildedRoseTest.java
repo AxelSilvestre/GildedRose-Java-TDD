@@ -63,6 +63,23 @@ public class GildedRoseTest
 		}
 		
 	}
+	
+	@Test
+	public void testAgedBrie(){		
+		
+		ArrayList<Item> items = new ArrayList<Item>(); 
+
+		items.add(new Item("MyItem1-4", 10, 20));
+		items.add(new Item("Aged Brie", 10, 0));
+
+
+		for(int i=1; i<4; i++){
+			GildedRose.updateItems(items);			
+			assertEquals(items.get(0).getQuality(), 20-i);
+			assertEquals(items.get(1).getQuality(), 0+i);
+		}
+		
+	}
 
 	@Test
 	public void testEmptyList(){
