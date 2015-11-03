@@ -30,7 +30,10 @@ public class GildedRose
 
 	public static void updateItem(Item item)
 	{
-		item.setQuality(item.getQuality() - (item.getSellIn() <= 0 ? 2 : 1));
+		if(item.getQuality() > 0)
+			item.setQuality(item.getQuality() - (item.getSellIn() <= 0 ? 2 : 1));
+		else if(item.getQuality() < 0)
+			item.setQuality(0);
 		item.setSellIn(item.getSellIn()-1);
 	}
 
